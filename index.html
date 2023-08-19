@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+<title>Elsystem</title>
+<style>
+  body {
+    font-family: 'Cairo', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f6f9; /* Soft blue-gray background */
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  header {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #3498db; /* Sky blue header */
+    color: #fff;
+  }
+  
+  h1 {
+    font-size: 36px;
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin-top: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th, td {
+    border: 1px solid #d1d8dd; /* Light gray border */
+    padding: 10px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #3498db; /* Sky blue button */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #2186c4; /* Slightly darker blue on hover */
+  }
+  
+  .delete-button {
+    background-color: #e74c3c; /* Coral red delete button */
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .delete-button:hover {
+    background-color: #c0392b; /* Slightly darker red on hover */
+  }
+  
+  .reflection-post {
+    background-color: #fff;
+    border: 1px solid #d1d8dd; /* Light gray border */
+    border-radius: 10px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    padding: 15px;
+    position: relative;
+    text-align: left;
+  }
+
+  .reflection-post.rtl {
+    text-align: right;
+  }
+  
+  .post-buttons {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  
+  .post-date {
+    font-size: 14px;
+    color: #999;
+  }
+  
+  .post-text {
+    font-size: 18px;
+    margin-top: 10px;
+    line-height: 1.5;
+
+  }
+  
+  .blog-section {
+    margin-top: 40px;
+  }
+  
+  .blog-post {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .blog-post-date {
+    font-size: 14px;
+    color: #777;
+  }
+  
+  .blog-post-content {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .container {
+      padding: 10px;
+    }
+  
+    table {
+      font-size: 14px;
+    }
+  
+    h1 {
+      font-size: 28px;
+    }
+  
+    h2 {
+      font-size: 20px;
+    }
+  }
+
+  /* Top bar styles */
+.top-bar {
+  background: linear-gradient(to right, #a0d8eb, #f5f7fa); /* Gradient from soft blue to light gray */
+  color: #333; /* Dark gray text */
+  padding: 10px 0;
+  text-align: center;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.top-bar h3 {
+  margin: 0;
+}
+
+.top-bar p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+
+#newPostTextarea {
+    width: 60%; /* Adjust the width as needed */
+    margin: 0 auto; /* Center the textarea horizontally */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+
+
+  </style></head>
+<body>
+
+  <div class="top-bar">
+    <h3>Welcome to ER Time Management System</h3>
+    <p>Your journey to better productivity and self-improvement</p>
+  </div>
+
+  <h1>صلي علي نبينا الحبيب محمد </h1>
+
+  <h2>Today's Tasks</h2>
+
+
+  <table>
+    <tr>
+      <th>Time Slot</th>
+      <th>Task</th>
+      <th>Completed</th>
+    </tr>
+    <tr>
+      <td>12:00 PM - 1:00 PM</td>
+      <td>استحمام - قراءة اذكار الصباح - 20 دقيقة من تمارين الصباح</td>
+      <td><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>1:00 PM - 2:00 PM</td>
+      <td>صلاة الظهر - البدأ بالعمل</td>
+      <td><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>2:00 PM - 3:00 PM</td>
+      <td>استمرار العمل</td>
+      <td><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>3:00 PM - 4:00 PM</td>
+      <td>الاستماع لشيء مفيد او اكتساب مهارة جديدة</td>
+      <td><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>4:00 PM - 5:00 PM</td>
+      <td>صلاة العصر - التأمل والتفكر</td>
+      <td><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>6:00 PM - 7:00 PM</td>
+      <td>العودة للعمل</td>
+      <td><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>7:00 PM - 8:00 PM</td>
+      <td>قراءة اذكار المساء ثم الاستمرار في العمل</td>
+      <td><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>8:00 PM - 9:00 PM</td>
+      <td>الاستمرار في العمل حتى صلاة المغرب</td>
+      <td><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>9:00 PM - 10:00 PM</td>
+      <td>ساعة الا ربع من التمرين - ربع ساعة للراحة</td>
+      <td><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>10:00 PM - 11:00 PM</td>
+      <td>صلاة العشاء ثم التأمل والتفكر</td>
+      <td><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>11:00 PM - 12:00 AM</td>
+      <td>الخروج للمشي او الترفيه</td>
+      <td><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>12:00 AM - 1:00 AM</td>
+      <td>ساعة من علوم الدين</td>
+      <td><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>1:00 AM - 2:00 AM</td>
+      <td>قراءة كتاب</td>
+      <td><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>2:00 AM - 4:00 AM</td>
+      <td>العودة للعمل</td>
+      <td><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>4:00 AM - 5:00 AM</td>
+      <td>قراءة القرآن الكريم حتى صلاة الفجر</td>
+      <td><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>After Fajr - 12:00 PM</td>
+      <td>فترة النوم</td>
+      <td><input type="checkbox"></td>
+    </tr>
+  </table>
+
+  <button id="analyzeButton">Analyze Performance</button>
+
+  <h2>Previous Days' Analysis</h2>
+  <table id="analysisTable">
+    <tr>
+      <th>Day Number</th>
+      <th>Date</th>
+      <th>Completion Degree</th>
+    </tr>
+    <!-- Repeat for each previous day's analysis -->
+    <tr>
+      <td>1</td>
+      <td>من 12 مساءا الي 1 مساءا : استحمام - قراءة اذكار الصباح - 20 دقيقة من تمارين الصباح</td>
+      <td>XX%</td>
+    </tr>
+    <!-- Repeat for other previous day's analyses -->
+
+    
+  </table>
+
+  <h2>Create a New Post</h2>
+  <textarea id="newPostTextarea" rows="5" cols="50" placeholder="Write your new post"></textarea>
+  <button id="createPostButton">Create Post</button>
+  
+  <div id="blogSection">
+    <h2>Blog Posts</h2>
+    <div id="blogPosts"></div>
+  </div>
+  <div class="reflection-post">
+
+    <div class="post-buttons">
+      <button class="edit-button">Edit</button>
+      <button class="delete-button">Delete</button>
+    </div>
+    <p class="post-date">Date</p>
+    <p class="post-text">Content</p>
+    <div class="post-media">
+      <!-- Placeholder for media (image or video) -->
+    </div>
+  </div>
+  <script>
+    const analyzeButton = document.getElementById("analyzeButton");
+    analyzeButton.addEventListener("click", analyzePerformance);
+
+    function analyzePerformance() {
+  const tasks = document.querySelectorAll('input[type="checkbox"]');
+  let totalScore = 0;
+
+  tasks.forEach(task => {
+    if (task.checked) {
+      totalScore += 10;
+    }
+  });
+
+  const analysisTable = document.getElementById("analysisTable");
+  const newRow = analysisTable.insertRow(1); // Insert after the header row
+  const newCellScore = newRow.insertCell(0); // Only add one cell
+
+  const currentDate = new Date().toLocaleDateString();
+  newCellScore.textContent = totalScore + "%";
+
+  const previousDaysData = JSON.parse(localStorage.getItem("previousDaysData")) || [];
+  previousDaysData.push({ date: currentDate, score: totalScore });
+  localStorage.setItem("previousDaysData", JSON.stringify(previousDaysData));
+
+  // Reload previous days' data after adding the new entry
+  loadPreviousDaysData();
+}
+
+    function loadPreviousDaysData() {
+  const analysisTable = document.getElementById("analysisTable");
+  const previousDaysData = JSON.parse(localStorage.getItem("previousDaysData")) || [];
+
+
+  // Clear existing rows
+  while (analysisTable.rows.length > 1) {
+    analysisTable.deleteRow(1);
+  }
+
+  previousDaysData.forEach((data, index) => {
+    const newRow = analysisTable.insertRow(1); // Insert after the header row
+    const newCellNumber = newRow.insertCell(0);
+    const newCellDate = newRow.insertCell(1);
+    const newCellTask = newRow.insertCell(2);
+    const newCellScore = newRow.insertCell(3);
+    const newCellDelete = newRow.insertCell(4);
+
+    newCellNumber.textContent = index + 1;
+    newCellDate.textContent = data.date;
+    newCellTask.textContent = "Previous Day's Total Score";
+    newCellScore.textContent = data.score;
+
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    deleteButton.classList.add("delete-button");
+    deleteButton.addEventListener("click", () => deleteRow(index));
+    newCellDelete.appendChild(deleteButton);
+  });
+}
+
+
+
+
+    // Delete a row and update local storage
+    function deleteRow(index) {
+      const previousDaysData = JSON.parse(localStorage.getItem("previousDaysData")) || [];
+      previousDaysData.splice(index, 1);
+      localStorage.setItem("previousDaysData", JSON.stringify(previousDaysData));
+      loadPreviousDaysData(); // Reload the table after deletion
+    }
+
+    // Load previous days' data when the page loads
+    loadPreviousDaysData();
+
+// Function to create a new blog post
+function createPost() {
+  const newPostTextarea = document.getElementById("newPostTextarea");
+  const newPost = newPostTextarea.value;
+
+  // Store the new post in local storage
+  const currentDate = new Date().toLocaleDateString();
+  const previousDaysData = JSON.parse(localStorage.getItem("previousDaysData")) || [];
+  previousDaysData.push({ date: currentDate, post: newPost });
+  localStorage.setItem("previousDaysData", JSON.stringify(previousDaysData));
+
+  // Clear the input and display the updated blog posts
+  newPostTextarea.value = "";
+  displayBlogPosts();
+}
+
+  // Function to display blog posts
+  function displayBlogPosts() {
+    const blogSection = document.getElementById("blogPosts");
+    blogSection.innerHTML = ""; // Clear existing posts
+
+    const previousDaysData = JSON.parse(localStorage.getItem("previousDaysData")) || [];
+    previousDaysData.forEach((data, index) => {
+      if (data.post) {
+        const post = document.createElement("div");
+        post.classList.add("reflection-post");
+        if (isArabicText(data.post)) {
+          post.classList.add("rtl"); // Add RTL class for Arabic posts
+        }
+        post.innerHTML = `
+          <p class="post-date">${data.date}</p>
+          <p class="post-text">${data.post}</p>
+          <div class="post-buttons">
+            <button class="edit-button" onclick="editPost(${index})">Edit</button>
+            <button class="delete-button" onclick="deletePost(${index})">Delete</button>
+          </div>
+        `;
+        blogSection.appendChild(post);
+      }
+    });
+  }
+
+  // Function to check if a given text contains Arabic characters
+  function isArabicText(text) {
+    const arabicPattern = /[\u0600-\u06FF]/;
+    return arabicPattern.test(text);
+  }
+
+
+// Function to edit a blog post
+function editPost(index) {
+  const previousDaysData = JSON.parse(localStorage.getItem("previousDaysData")) || [];
+  const postToEdit = previousDaysData[index].post;
+
+  // Populate the text area with the content of the post
+  const newPostTextarea = document.getElementById("newPostTextarea");
+  newPostTextarea.value = postToEdit;
+
+  // Remove the post from local storage
+  previousDaysData.splice(index, 1);
+  localStorage.setItem("previousDaysData", JSON.stringify(previousDaysData));
+
+  // Display the updated blog posts
+  displayBlogPosts();
+}
+
+// Function to delete a blog post
+function deletePost(index) {
+  const previousDaysData = JSON.parse(localStorage.getItem("previousDaysData")) || [];
+  previousDaysData.splice(index, 1);
+  localStorage.setItem("previousDaysData", JSON.stringify(previousDaysData));
+
+  // Display the updated blog posts
+  displayBlogPosts();
+}
+
+// Attach click event to the create post button
+const createPostButton = document.getElementById("createPostButton");
+createPostButton.addEventListener("click", () => {
+  createPost();
+  displayBlogPosts();
+});
+
+// Load and display the blog posts when the page loads
+displayBlogPosts();
+
+  </script>
+</body>
+</html>
